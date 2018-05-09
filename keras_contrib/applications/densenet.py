@@ -921,8 +921,8 @@ def __create_fcn_dense_net(nb_classes, img_input, include_top, nb_dense_block=5,
         for block_idx in range(nb_dense_block):
             n_filters_keep = growth_rate * nb_layers[nb_dense_block + block_idx]
 
-            # upsampling block must upsample only the feature maps (concat_list[1:]),
-            # not the concatenation of the input with the feature maps (concat_list[0].
+            # upsampling block must upsample only the feature maps (_concat_list[1:]),
+            # not the concatenation of the input with the feature maps (_concat_list[0].
             l = concatenate(concat_list[1:], axis=concat_axis)
 
             t = __transition_up_block(l, nb_filters=n_filters_keep, type=upsampling_type, weight_decay=weight_decay)
